@@ -18,7 +18,7 @@ export default function HomePage() {
   const { list } = useAppSelector((state) => state.users);
 
   useEffect(() => {
-    fetch(`https://dummyjson.com/users?limit=${limit}&skip=${page * limit}`)
+    fetch(`${process.env.URL_API}/users?limit=${limit}&skip=${page * limit}`)
       .then((res) => res.json())
       .then((data) => {
         setTotal(data.total);
